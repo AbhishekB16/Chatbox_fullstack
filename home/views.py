@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from django.contrib import messages
 from home.models import User
+from django.views.generic import View
 # Create your views here.
 def signin(request):
     #return HttpResponse("this is check")
@@ -22,3 +23,14 @@ def signin(request):
             messages.warning(request, 'In-Valid Credentials')
             # return render(request,'signin.html')
     return render(request,'signin.html')
+def register(request):
+    return render(request,'register.html')
+
+def get(request):
+    # request.GET.get('course','')
+    text=request.GET.get('button_text','')
+    print("------------xxxx-----------")
+    print(text)
+    print()
+    #return HttpResponse("hey")
+    return render(request,'register.html')
