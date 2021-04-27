@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block body %}
+  {% load static %}
+<link rel="stylesheet" href="{% static 'chat.css' %}">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com    @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>Clean chat box - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
+ <!-- <style>
+.chat-avatar .avatar {
+    width: 30px
+        -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3);
+}</style>  -->
+</head>
+<body >
+    <h3 style="text-align: center;margin-top:10px">CHAT ROOM
+        </h3>
+<div class="container bootstrap snippets bootdeys" style="text-align: center;width: 100%;margin-top: 4%;margin-bottom: 0cm;height:100%">
+<div class="col-md-7 col-xs-12 col-md-offset-2" style="height:100%" > 
+  <!-- Panel Chat -->
+  <div class="panel" id="chat" style="height:100%">
+    <div class="panel-heading">
+      <!-- <h3 class="panel-title">
+        <i class="icon wb-chat-text" aria-hidden="true"></i> Chat
+      </h3> -->
+    </div>
+    <div class="panel-body" style="height:100%">
+      <div class="chats" style="margin-left: 35%; width:100%">
+        <div class="chat">
+          <div class="chat-avatar">
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+              <i></i>
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content">
+              <p>
+                Good morning, sir.
+                <br>What can I do for you?
+              </p>
+              <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time>
+            </div>
+          </div>
+        </div>
+        <div class="chat chat-left">
+          <div class="chat-avatar">
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
+              <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
+              <i></i>
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content">
+              <p>Well, I am just looking around.</p>
+              <time class="chat-time" datetime="2015-07-01T11:39">11:39:57 am</time>
+            </div>
+          </div>
+        </div>
+        <div class="chat">
+          <div class="chat-avatar">
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+              <i></i>
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content">
+              <p>
+                If necessary, please ask me.
+              </p>
+              <time class="chat-time" datetime="2015-07-01T11:40">11:40:10 am</time>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Say something">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">Send</button>
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- End Panel Chat -->
+</div>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+
+
+{% endblock body %}
