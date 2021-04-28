@@ -1,6 +1,6 @@
 from django.shortcuts import render,HttpResponse
 from django.contrib import messages
-from home.models import User
+from home.models import User,message
 from django.views.generic import View
 from django.http import JsonResponse
 from time import time
@@ -22,6 +22,7 @@ def signin(request):
             # messages.success(request, "Success")
             context={
                 "emailadd":email,
+                "gender":temp.gender
             }
             return render(request,'chatpage.html',context)
         else: 
@@ -42,10 +43,29 @@ class AjaxHandlerView(View):
         # return HttpResponse("hey")
         return render(request,'register.html')
     def post(self,request):
-        print("------------xxxx2-----------")
+        # print("------------xxxx4-----------")
         card_text=request.POST.get('text')
-        card_email=request.POST.get('email')
-
-        print("-->"+card_email)
+        from_email=request.POST.get('email')
+        to_email=request.POST.get('email_to')
+        finder=message.objects.filter(to=from_email)
+        # print(finder[0].msg)
+        # print(finder[len(finder)-1].msg)
+        saver=message(frm=from_email,to=to_email,msg=card_text)
+        saver.save()
+        print(from_email+"-->"+to_email)
         result= f"I've got : {card_text}"
-        return JsonResponse({'data':result},status=200)
+        context={
+            "msg11":result,
+            'finder11':finder[len(finder)-1].msg
+        }
+        return JsonResponse(context,status=200)
+    def post2(self,request):
+        print("------------xxxx4-----------")
+        to_email=request.POST.get('email_to')
+        finder=message.objects.filter(to=to_email)
+        print(finder[len(finder)-1].msg)
+        context={
+            'finder11':finder[len(finder)-1].msg,
+            # "finder11":'hellllo11'
+        }
+        return JsonResponse(context,status=200)

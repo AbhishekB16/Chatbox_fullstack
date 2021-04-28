@@ -18,11 +18,24 @@
 }</style>  -->
 </head>
 <body >
+
   <input type="hidden" id="myvar" name="variable" value="{{ emailadd }}">
   <!-- <h1>=={{emailadd}}</h1> -->
     <h3 style="text-align: center;margin-top:10px">CHAT ROOM
         </h3>
-<div class="container bootstrap snippets bootdeys" style="text-align: center;width: 100%;margin-top: 4%;margin-bottom: 0cm;height:100%">
+        <button id="6">
+        {% if gender %}
+         <input type="hidden" class="myvar2" name="variable" value="juliet@iit">
+      
+        Chat With Juliet
+    
+        
+        {% else %}
+         <input type="hidden" class="myvar2" name="variable" value="romeo@iit">
+         Chat With Romeo
+        {% endif %}
+            </button>
+<div class="container bootstrap snippets bootdeys" id="main1" style="text-align: center;width: 100%;margin-top: 4%;margin-bottom: 0cm;height:100%" id="main7">
 <div class="col-md-7 col-xs-12 col-md-offset-2" style="height:100%" > 
   <!-- Panel Chat -->
   <div class="panel" id="chat" style="height:100%">
@@ -33,10 +46,28 @@
     </div>
     <div class="panel-body" style="height:100%">
       <div class="chats" style="margin-left: 35%; width:100%">
+
+        <div class="chat chat-left">
+          <div class="chat-avatar">
+            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
+              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="..."> -->
+              <i></i>
+            </a>
+          </div>
+          <div class="chat-body">
+            <div class="chat-content" id="chat_3">
+              <!-- <p>Well, I am just looking around.</p> -->
+              <!-- <time class="chat-time" datetime="2015-07-01T11:39">11:39:57 am</time> -->
+            </div>
+         
+          </div>
+        </div>
+
+
         <div class="chat" id="chat_1">
           <div class="chat-avatar">
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
+              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="..."> -->
               <i></i>
             </a>
           </div>
@@ -51,21 +82,8 @@
             </div>
           </div>
         </div>
-        <div class="chat chat-left">
-          <div class="chat-avatar">
-            <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
-              <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
-              <i></i>
-            </a>
-          </div>
-          <div class="chat-body">
-            <div class="chat-content">
-              <p>Well, I am just looking around.</p>
-              <time class="chat-time" datetime="2015-07-01T11:39">11:39:57 am</time>
-            </div>
-          </div>
-        </div>
-        <div class="chat">
+       
+        <!-- <div class="chat">
           <div class="chat-avatar">
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
               <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
@@ -80,7 +98,7 @@
               <time class="chat-time" datetime="2015-07-01T11:40">11:40:10 am</time>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
     <div class="panel-footer">

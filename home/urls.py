@@ -7,4 +7,5 @@ urlpatterns = [
     path("register/",views.register,name="reg"),
     path("get/",AjaxHandlerView.as_view()),
     path("post",AjaxHandlerView.as_view()),
+    # path("post3",AjaxHandlerView.as_view()),
 ]
