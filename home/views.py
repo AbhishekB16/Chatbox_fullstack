@@ -2,6 +2,8 @@ from django.shortcuts import render,HttpResponse
 from django.contrib import messages
 from home.models import User
 from django.views.generic import View
+from django.http import JsonResponse
+from time import time
 # Create your views here.
 def signin(request):
     #return HttpResponse("this is check")
@@ -25,12 +27,20 @@ def signin(request):
     return render(request,'signin.html')
 def register(request):
     return render(request,'register.html')
+class AjaxHandlerView(View):
+    def get(self,request):
+        # request.GET.get('course','')
+        text=request.GET.get('button_text')
+        # print("------------xxxx-----------")
+        if request.is_ajax():
+            t=time()
+            return JsonResponse({'seconds':t},status=200)
 
-def get(request):
-    # request.GET.get('course','')
-    text=request.GET.get('button_text','')
-    print("------------xxxx-----------")
-    print(text)
-    print()
-    #return HttpResponse("hey")
-    return render(request,'register.html')
+        # return HttpResponse("hey")
+        return render(request,'register.html')
+    def post(self,request):
+        print("------------xxxx2-----------")
+        card_text=request.POST.get('text')
+        print("-->"+card_text)
+        result= f"I've got : {card_text}"
+        return JsonResponse({'data':result},status=200)
