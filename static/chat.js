@@ -19,18 +19,24 @@ $(document).ready(function(){
     //     });
         
     // });
+    
+    $("#chat_1").hide();
     $("#2").on('click',function(){
+        
         $.ajax({
             url:'/post',
             type:'post',
             data:{
                 // text: $(this).text(),
                 // text:"this is 2211",
+                email:$("#myvar").val(),
+                
                 text: $("#chat_msg").val(),
                 csrfmiddlewaretoken :csrf
             },
             success: function(response){
-                $("#chat_1").append('<p>'+response.data+'</p>')
+                $("#chat_2").append('<p>'+response.data+'</p>')
+                $("#chat_1").show();
             }
         })
     });

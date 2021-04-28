@@ -20,7 +20,10 @@ def signin(request):
 
         if temp.pswd==pswd1:
             # messages.success(request, "Success")
-            return render(request,'chatpage.html')
+            context={
+                "emailadd":email,
+            }
+            return render(request,'chatpage.html',context)
         else: 
             messages.warning(request, 'In-Valid Credentials')
             # return render(request,'signin.html')
@@ -41,6 +44,8 @@ class AjaxHandlerView(View):
     def post(self,request):
         print("------------xxxx2-----------")
         card_text=request.POST.get('text')
-        print("-->"+card_text)
+        card_email=request.POST.get('email')
+
+        print("-->"+card_email)
         result= f"I've got : {card_text}"
         return JsonResponse({'data':result},status=200)
