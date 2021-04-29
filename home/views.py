@@ -4,6 +4,7 @@ from home.models import User,message
 from django.views.generic import View
 from django.http import JsonResponse
 from time import time
+from datetime import datetime
 # Create your views here.
 def signin(request):
     #return HttpResponse("this is check")
@@ -22,7 +23,8 @@ def signin(request):
             # messages.success(request, "Success")
             context={
                 "emailadd":email,
-                "gender":temp.gender
+                "gender":temp.gender,
+                "logout":1
             }
             return render(request,'chatpage.html',context)
         else: 
@@ -47,25 +49,56 @@ class AjaxHandlerView(View):
         card_text=request.POST.get('text')
         from_email=request.POST.get('email')
         to_email=request.POST.get('email_to')
-        finder=message.objects.filter(to=from_email)
+        # finder=message.objects.filter(to=from_email)
         # print(finder[0].msg)
         # print(finder[len(finder)-1].msg)
-        saver=message(frm=from_email,to=to_email,msg=card_text)
+        saver=message(frm=from_email,to=to_email,msg=card_text,date_created=datetime.now())
         saver.save()
         print(from_email+"-->"+to_email)
-        result= f"I've got : {card_text}"
+        # result= f"I've got : {card_text}"
         context={
-            "msg11":result,
-            'finder11':finder[len(finder)-1].msg
+            "msg11":card_text,
+            # 'finder11':finder[len(finder)-1].msg
         }
         return JsonResponse(context,status=200)
-    def post2(self,request):
-        print("------------xxxx4-----------")
-        to_email=request.POST.get('email_to')
-        finder=message.objects.filter(to=to_email)
-        print(finder[len(finder)-1].msg)
-        context={
-            'finder11':finder[len(finder)-1].msg,
-            # "finder11":'hellllo11'
-        }
-        return JsonResponse(context,status=200)
+    # def post2(self,request):
+    #     # print("------------xxxx4-----------")
+    #     to_email=request.POST.get('email_to')
+    #     finder=message.objects.filter(to=to_email)
+    #     print(finder[len(finder)-1].msg)
+    #     context={
+    #         'finder11':finder[len(finder)-1].msg,
+    #         # "finder11":'hellllo11'
+    #     }
+    #     return JsonResponse(context,status=200)
+def validator(request):
+    # print("------------xxxx4-----------")
+    to_email=request.POST.get('email_to')
+    finder=message.objects.filter(frm=to_email).filter(delivered=0).order_by('date_created')
+    # print(to_email)
+    # print(finder[len(finder)-1].msg)
+    msg_text=""
+    msg_gate=0
+    ln1=len(finder)
+    # for i in finder:
+    #     print(i.msg)   
+    #     print(i.date_created)
+
+    
+    # print("length=",ln1)
+    if ln1>0:
+        msg_gate=1
+        kep=finder[0]
+        msg_text=kep.msg
+        # print("---------->report1=",kep.delivered)
+        # print(msg_text)
+        kep.delivered=1
+        # print("---------->report2=",kep.delivered)
+        kep.save(update_fields=['delivered'])
+    context={
+        'finder11':msg_text,
+        'msg_gate':msg_gate,
+        # "finder11":'hellllo11'
+    }
+    return JsonResponse(context,status=200)
+

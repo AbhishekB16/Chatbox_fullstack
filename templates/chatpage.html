@@ -23,7 +23,8 @@
   <!-- <h1>=={{emailadd}}</h1> -->
     <h3 style="text-align: center;margin-top:10px">CHAT ROOM
         </h3>
-        <button id="6">
+        <div class="col-md-12 text-center" id="btn_6">
+        <button id="6" class="btn btn-primary btn-lg" >
         {% if gender %}
          <input type="hidden" class="myvar2" name="variable" value="juliet@iit">
       
@@ -34,54 +35,64 @@
          <input type="hidden" class="myvar2" name="variable" value="romeo@iit">
          Chat With Romeo
         {% endif %}
-            </button>
+            </button></div>
+               <div class="text-center" id="msg31">
+          {% if gender %}
+       
+            <div class="container" style=" font-family: 'Comic Sans', cursive, serif">Hi Romeo, Your Chatroom is now Active</div>
+           
+           {% else %}
+           <div class="container" style=" font-family: 'Comic Sans', cursive, serif">Hi Juliet, Your Chatroom is now Active</div>
+            {% endif %}
+            </div>
+            
 <div class="container bootstrap snippets bootdeys" id="main1" style="text-align: center;width: 100%;margin-top: 4%;margin-bottom: 0cm;height:100%" id="main7">
 <div class="col-md-7 col-xs-12 col-md-offset-2" style="height:100%" > 
   <!-- Panel Chat -->
   <div class="panel" id="chat" style="height:100%">
-    <div class="panel-heading">
-      <!-- <h3 class="panel-title">
-        <i class="icon wb-chat-text" aria-hidden="true"></i> Chat
-      </h3> -->
-    </div>
+                    <!-- <div class="panel-heading">
+                      <h3 class="panel-title">
+                        <i class="icon wb-chat-text" aria-hidden="true"></i> Chat
+                      </h3>
+                    </div> -->
     <div class="panel-body" style="height:100%">
-      <div class="chats" style="margin-left: 35%; width:100%">
-
+      <div class="chats" id="chat_appender" style="margin-left: 35%; width:100%">
+<!-- 
         <div class="chat chat-left">
           <div class="chat-avatar">
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="left" title="" data-original-title="Edward Fletcher">
-              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="..."> -->
+              <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="...">
               <i></i>
             </a>
           </div>
           <div class="chat-body">
             <div class="chat-content" id="chat_3">
-              <!-- <p>Well, I am just looking around.</p> -->
-              <!-- <time class="chat-time" datetime="2015-07-01T11:39">11:39:57 am</time> -->
+              <p>Well, I am just looking around.</p>
+              <time class="chat-time" datetime="2015-07-01T11:39">11:39:57 am</time>
             </div>
          
           </div>
-        </div>
+        </div> -->
 
 
-        <div class="chat" id="chat_1">
+        <!-- <div class="chat" id="chat_main_right">
           <div class="chat-avatar">
             <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
-              <!-- <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="..."> -->
+              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="...">
               <i></i>
             </a>
           </div>
           <div class="chat-body" >
             <div class="chat-content" id="chat_2">
-              <!-- heeelo
+              heeelo
               <p>
                 Good morning, sir.
                 <br>What can I do for you?
-              </p> -->
-              <!-- <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time> -->
+              </p>
+              <time class="chat-time" datetime="2015-07-01T11:37">11:37:08 am</time>
             </div>
           </div>
-        </div>
+        </div> -->
        
         <!-- <div class="chat">
           <div class="chat-avatar">
@@ -107,7 +118,8 @@
         <div class="input-group">
           <input type="text" class="form-control" id="chat_msg" placeholder="Say something">
           <span class="input-group-btn">
-            <button class="btn btn-primary" id="2" type="button">Send</button>
+            <!-- <button class="btn btn-primary" id="2" type="submit" >Send</button> -->
+            <a class="btn btn-primary" id="2">Send</a>
           </span>
         </div>
       </form>
