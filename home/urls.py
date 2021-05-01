@@ -9,4 +9,5 @@ urlpatterns = [
     path("post",AjaxHandlerView.as_view()),
     path("valid",views.validator,name="valid")
     # path("post3",AjaxHandlerView.as_view()),
+    # www.google.com/
 ]
