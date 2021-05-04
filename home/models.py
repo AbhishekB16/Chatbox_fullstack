@@ -14,7 +14,7 @@ class message(models.Model):
     to=models.CharField(max_length=145)
     msg=models.CharField(max_length=1405)
     delivered=models.IntegerField(default=0)
-    rply=message(default="null")
+    # rply=message(default="null")
     date_created=models.DateTimeField()
     def __str__(self):
         return self.msg
